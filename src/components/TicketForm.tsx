@@ -2,15 +2,16 @@ import { useState } from "react";
 import TicketPreview from "./TicketPreview";
 
 function TicketForm() {
-  const [avatar, setAvatar] = useState(null);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [github, setGithub] = useState("");
-  const [error, setError] = useState("");
-  const [ticketGenerated, setTicketGenerated] = useState(false);
 
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
+  const [avatar, setAvatar] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [ticketGenerated, setTicketGenerated] = useState<boolean>(false);
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]; // Safe access
     if (file) {
       if (!["image/jpeg", "image/png"].includes(file.type)) {
         setError("Only JPG and PNG formats are allowed.");
@@ -20,12 +21,12 @@ function TicketForm() {
         setError("File size should not exceed 500KB.");
         return;
       }
-      setAvatar(URL.createObjectURL(file));
+      setAvatar(URL.createObjectURL(file)); // Ensures valid assignment
       setError("");
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!fullName || !email || !github) {
       setError("All fields are required.");
