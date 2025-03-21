@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.text-xx-large{
+    font-size: 38px;
+}
+
+.top-0 {
+    top: calc(var(--spacing)* -3);
+}
+
+.bottom-0 {
+    bottom: calc(var(--spacing)* -3);
+}
