@@ -77,7 +77,15 @@ function TicketForm() {
             <label htmlFor="">Github Username</label>
             <input type="text" value={github} onChange={(e) => setGithub(e.target.value)} placeholder="@yourusername" className="w-full p-3 border rounded-md mb-3 text-white" />
 
-            <button onClick={handleSubmit} className="w-full bg-orange-500 p-3 rounded-md text-black font-bold hover:bg-orange-600">Generate My Ticket</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault(); // Prevent form submission
+                handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
+              }}
+              className="w-full bg-orange-500 p-3 rounded-md text-black font-bold hover:bg-orange-600"
+            >
+              Generate My Ticket
+            </button>
           </div>
         </div>
       ) : (

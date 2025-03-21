@@ -41,7 +41,7 @@ const TicketPreview: React.FC<TicketPreviewProps> = ({ fullName, email, github, 
           <p className="text-sm text-white mb-5 ml-9">June 30, 2025 / Rabat</p>
 
           <div className="flex items-center mb-4">
-            <img src={avatar} className="w-10 h-10 rounded-lg mr-4" alt="Logo" />
+            <img src={avatar || ""} className="w-10 h-10 rounded-lg mr-4" alt="Logo" />
             <div>
               <h2 className="text-xl text-white mb-1">{fullName}</h2>
               <p className="text-lg text-white"><FontAwesomeIcon icon={faGithub} /> {github}</p>
