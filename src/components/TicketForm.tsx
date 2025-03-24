@@ -17,7 +17,7 @@ function TicketForm() {
         setError("Only JPG and PNG formats are allowed.");
         return;
       }
-      if (file.size > 500 * 1024) {
+      if (file.size > 2 * 1024 * 1024) {
         setError("File size should not exceed 500KB.");
         return;
       }
